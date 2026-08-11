@@ -12,3 +12,15 @@ repos:
           - --verbose
           - --config
           - .gitleaks.toml
+
+      - id: ruff-check
+        name: Ruff lint
+        entry: ruff check
+        language: system
+        types: [python]
+
+      - id: ruff-format
+        name: Ruff format
+        entry: ruff format --check
+        language: system
+        types: [python]

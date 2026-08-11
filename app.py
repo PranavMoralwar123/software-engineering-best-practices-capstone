@@ -1,3 +1,4 @@
+import logging
 import os
 import sqlite3
 
@@ -13,11 +14,14 @@ if not API_KEY:
 
 app = FastAPI()
 
+logger = logging.getLogger(__name__)
+
+
 @app.get("/users")
 def search_users(username: str = Query(..., min_length=1, max_length=50)):
-    conn = sqlite3.connect("users.db")
-
     try:
+        conn = sqlite3.connect("users.db")
+
         query = """
             SELECT id, username, email
             FROM users
@@ -38,10 +42,12 @@ def search_users(username: str = Query(..., min_length=1, max_length=50)):
         }
 
     except sqlite3.Error:
+        logger.exception("Database error while searching users")
         raise HTTPException(
             status_code=500,
-            detail="Unable to process the request."
+            detail="Unable to process the request.",
         )
 
     finally:
-        conn.close()
+        if "conn" in locals():
+            conn.close()
