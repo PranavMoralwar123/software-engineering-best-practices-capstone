@@ -18,3 +18,7 @@ A 6-day capstone focused on professional software engineering practices.
 - Push work to the remote repository regularly.
 - Keep commits small and focused.
 - Keep the repository recoverable and up to date.
+
+## Artifact Storage Rule
+
+Code and documentation belong in the approved remote repository, while secrets belong only in environment variables or approved secret managers and are never committed to Git.
