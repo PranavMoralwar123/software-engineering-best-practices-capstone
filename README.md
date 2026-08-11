@@ -26,3 +26,5 @@ Code and documentation belong in the approved remote repository, while secrets b
 ## AI Use Rule
 
 Never paste secrets, credentials, customer data, proprietary code, or confidential business information into an unapproved AI tool. Every line of AI-generated code must be reviewed, understood, tested, and owned by the person who commits it.
+## Conflict Practice
+This change was made on the main branch.
