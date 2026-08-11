@@ -1,0 +1,14 @@
+repos:
+  - repo: local
+    hooks:
+      - id: gitleaks
+        name: Gitleaks secret scan
+        entry: gitleaks
+        language: system
+        pass_filenames: false
+        args:
+          - protect
+          - --staged
+          - --verbose
+          - --config
+          - .gitleaks.toml

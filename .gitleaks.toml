@@ -1,0 +1,14 @@
+title = "Capstone Gitleaks Configuration"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "capstone-test-secret"
+description = "Detect the deliberate fake secret used for pre-commit testing"
+regex = '''(?i)CAPSTONE_FAKE_SECRET\s*=\s*["']?sk-capstone-test-[a-zA-Z0-9]+["']?'''
+secretGroup = 0
+[allowlist]
+paths = [
+    '''^tests/secret_fixture\.txt$'''
+]
